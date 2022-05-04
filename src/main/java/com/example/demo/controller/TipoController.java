@@ -10,24 +10,24 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.models.RolModel;
+import com.example.demo.models.TipoModel;
 import com.example.demo.models.UsuarioModel;
-import com.example.demo.services.RolService;
+import com.example.demo.services.TipoService;
 
 @CrossOrigin(origins = "http://localhost:4200/")
 @RestController
-@RequestMapping("/rol")
-public class RolController {
+@RequestMapping("/tipo_documento")
+public class TipoController {
 	@Autowired
-	RolService rolService;
+	TipoService rolService;
 	
 	 @GetMapping()
-	 public ArrayList<RolModel> obtenerRoles() {
+	 public ArrayList<TipoModel> obtenerRoles() {
 		 return rolService.obtenerRoles();
 	 }
 	 
 	 @PostMapping()
-	 public RolModel guardarRol(@RequestBody RolModel rol) {
+	 public TipoModel guardarRol(@RequestBody TipoModel rol) {
 		 rol.setNombre(rol.getNombre().toUpperCase());
 		 return rolService.guardarRol(rol);
 	 }

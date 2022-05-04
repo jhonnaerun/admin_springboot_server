@@ -15,8 +15,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @Entity
-@Table(name = "Roles")
-public class RolModel {
+@Table(name = "tipos_documento")
+public class TipoModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(unique = true, nullable = false)
@@ -25,12 +25,12 @@ public class RolModel {
 	private String nombre;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "rol")
+	@OneToMany(mappedBy = "tipo")
 	private List<UsuarioModel> usuario;
 	
 
 
-	public RolModel() {
+	public TipoModel() {
 		// TODO Auto-generated constructor stub
 	}
 

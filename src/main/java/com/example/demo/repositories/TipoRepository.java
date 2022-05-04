@@ -3,9 +3,9 @@ package com.example.demo.repositories;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.example.demo.models.RolModel;
+import com.example.demo.models.TipoModel;
 
 @Repository
-public interface RolRepository extends CrudRepository<RolModel, Long> {
+public interface TipoRepository extends CrudRepository<TipoModel, Long> {
 
 }

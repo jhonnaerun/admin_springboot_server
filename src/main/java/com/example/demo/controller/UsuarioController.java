@@ -5,7 +5,10 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,7 +21,7 @@ import com.example.demo.models.Response;
 import com.example.demo.models.UsuarioModel;
 import com.example.demo.services.UsuarioService;
 
-@CrossOrigin(origins = "http://localhost:4200/")
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/usuario")
 public class UsuarioController {
@@ -40,9 +43,9 @@ public class UsuarioController {
 	 
 	 
 	 @PostMapping()
-	 public UsuarioModel guardarUsuario(@RequestBody UsuarioModel usuario) {
-		 usuario.setNombre(usuario.getNombre().toLowerCase());
-		 return this.usuarioService.guardarUsuario(usuario);
+	 public ResponseEntity<UsuarioModel> guardarUsuario(@RequestBody UsuarioModel usuario) {
+		 usuario.setPrimerNombre(usuario.getPrimerNombre().toLowerCase());
+		 return new ResponseEntity<>(this.usuarioService.guardarUsuario(usuario), HttpStatus.CREATED) ;
 	 }
 	 
 	 

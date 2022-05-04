@@ -17,22 +17,27 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class UsuarioModel {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(unique = true, nullable = false)
 	private long id;
 	@Column(nullable = false)
-	private String nombre;
+	private String primerNombre;
+	@Column(nullable = true)
+	private String segundoNombre;
 	@Column(nullable = false)
-	private boolean activo;
+	private String primerApellido;
+	@Column(nullable = true)
+	private String segundoApellido;
+	@Column(unique = false, nullable = false)
+	private String telefono;
+	@Column(nullable = true)
+	private String direccion;
+	@Column(nullable = false)
+	private String ciudad;
 	
 	//@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "id_deporte")
-	private RolModel rol;
-	
-	public UsuarioModel() {
-		// TODO Auto-generated constructor stub
-	}
+	@JoinColumn(name = "id_tipo")
+	private TipoModel tipo;
 
 	public long getId() {
 		return id;
@@ -42,32 +47,69 @@ public class UsuarioModel {
 		this.id = id;
 	}
 
-	public String getNombre() {
-		return nombre;
+	public String getPrimerNombre() {
+		return primerNombre;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setPrimerNombre(String primerNombre) {
+		this.primerNombre = primerNombre;
 	}
 
-	public boolean isActivo() {
-		return activo;
+	public String getSegundoNombre() {
+		return segundoNombre;
 	}
 
-	public void setActivo(boolean activo) {
-		this.activo = activo;
+	public void setSegundoNombre(String segundoNombre) {
+		this.segundoNombre = segundoNombre;
 	}
 
-	public RolModel getRol() {
-		return rol;
+	public String getPrimerApellido() {
+		return primerApellido;
 	}
 
-	public void setRol(RolModel rol) {
-		this.rol = rol;
+	public void setPrimerApellido(String primerApellido) {
+		this.primerApellido = primerApellido;
 	}
-	
-	
-	
-	
+
+	public String getSegundoApellido() {
+		return segundoApellido;
+	}
+
+	public void setSegundoApellido(String segundoApellido) {
+		this.segundoApellido = segundoApellido;
+	}
+
+	public String getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
+	public String getDireccion() {
+		return direccion;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+
+	public String getCiudad() {
+		return ciudad;
+	}
+
+	public void setCiudad(String ciudad) {
+		this.ciudad = ciudad;
+	}
+
+	public TipoModel getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(TipoModel tipo) {
+		this.tipo = tipo;
+	}
+
 
 }
